@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Mobi Debit$</string>
+
+    <!-- Tela: Cadastrar/Login -->
+    <string name="nome">Nome completo</string>
+    <string name="email">Email</string>
+    <string name="usuario">Nome de usuario</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="efetuarCadastro">Efetuar cadastro</string>
+    <string name="aguardeUmMomento">aguarde um momento. . .</string>
+    <string name="esqueciMinhaSenha">Esqueci minha senha.</string>
+    <string name="usuarioOuSenhaInvalida">Ops. Usuario ou Senha invalido.</string>
+    <string name="manterConectado">mantenha-me conectado.</string>
+    <string name="voltar">voltar</string>
+
+    <!-- Tela: HOME -->
+    <string name="bemVindo">Bem vindo!</string>
+    <string name="sair">Sair</string>
+    <string name="saldo">Saldo</string>
+    <string name="adicionar">Adicionar</string>
+
+    <!-- MESES -->
+    <string name="janeiro">Janeiro</string>
+    <string name="fevereiro">Fevereiro</string>
+    <string name="marco">Março</string>
+    <string name="abril">Abril</string>
+    <string name="maio">Maio</string>
+    <string name="junho">Junho</string>
+    <string name="julho">Julho</string>
+    <string name="agosto">Agosto</string>
+    <string name="setembro">Setembro</string>
+    <string name="outubro">Outubro</string>
+    <string name="novembro">Novembro</string>
+    <string name="dezembro">Dezembro</string>
+    <string name="title_activity_teste">teste</string>
+
+</resources>

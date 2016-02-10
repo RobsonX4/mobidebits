@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/planoDeFundo"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:textSize="20pt"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40pt"
+        android:layout_marginLeft="@dimen/margem"
+        android:layout_marginRight="@dimen/margem"
+        android:text="@string/usuario"
+        android:textColor="#000000"
+        android:textSize="10pt"
+        android:gravity="center" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margem"
+        android:layout_marginLeft="@dimen/margem"
+        android:id="@+id/usuarioLogin"
+        android:gravity="center"
+        android:text="adm" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margem"
+        android:layout_marginRight="@dimen/margem"
+        android:gravity="center"
+        android:text="@string/senha"
+        android:textColor="#000000"
+        android:textSize="10pt" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margem"
+        android:layout_marginLeft="@dimen/margem"
+        android:inputType="textPassword"
+        android:id="@+id/senhaLogin"
+        android:gravity="center"
+        android:text="adm" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10pt"
+        android:layout_marginRight="@dimen/margem"
+        android:layout_marginLeft="@dimen/margem"
+        android:gravity="center"
+        android:text="@string/entrar"
+        android:onClick="entrar" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margem"
+        android:layout_marginLeft="@dimen/margem"
+        android:gravity="center"
+        android:text="@string/cadastrar"
+        android:onClick="cadastrar" />
+
+</LinearLayout>

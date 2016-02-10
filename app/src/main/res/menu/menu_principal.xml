@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/menu_option"
+            android:title="menu"
+            android:showAsAction="always" />
+        <item
+            android:id="@+id/option_cadastrar"
+            android:title="Adicionar divida" />
+        <item
+            android:id="@+id/option_editar"
+            android:title="Editar divida" />
+        <item
+            android:id="@+id/option_consultar"
+            android:title="Pesquisar divida" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/option_perfil"
+            android:title="Perfil" />
+        <Item
+            android:id="@+id/option_areaFinanceira"
+            android:title="Área financeira" />
+        <item
+            android:id="@+id/logout"
+            android:title="Sair" />
+    </group>
+</menu>

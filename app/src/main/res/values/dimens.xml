@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margem">5pt</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- ListView: Dividas -->
+    <dimen name="largura_coluna_descricao">120dp</dimen>
+    <dimen name="largura_coluna">80dp</dimen>
+</resources>

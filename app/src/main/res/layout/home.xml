@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/planoDeFundo"
+    >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B7CFFF"
+        >
+        <TableRow
+            android:layout_marginLeft="@dimen/margem"
+            android:layout_marginRight="@dimen/margem"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salário: "
+                android:gravity="left"
+                android:textSize="10pt"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5pt"
+                android:id="@+id/salario"
+                android:text="R$1.986,50"
+                android:gravity="right"
+                android:textSize="10pt"
+                android:textColor="#000000"
+                android:layout_column="25"
+                />
+        </TableRow>
+    </TableLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/planoDeFundo"
+        >
+        <!-- Meses -->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+                android:background="#BFD4FF"
+            android:id="@+id/tableLayout">
+            <TableRow
+                android:layout_marginLeft="@dimen/margem"
+                android:layout_marginRight="@dimen/margem"
+                android:gravity="center"
+                >
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icone_left"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/btnPreviewYear"
+                    android:onClick="previewYear" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/anoSelecionado"
+                    android:text="2016"
+                    android:textSize="10pt"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true" />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icone_right"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/btnNextYear"
+                    android:onClick="nextYear" />
+            </TableRow>
+            <TableRow
+                android:layout_marginLeft="@dimen/margem"
+                android:layout_marginRight="@dimen/margem"
+                android:gravity="center"
+                >
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnJaneiro"
+                    android:text="@string/janeiro"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fevereiro"
+                    android:id="@+id/btnFevereiro"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/marco"
+                    android:id="@+id/btnMarco"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+            </TableRow>
+            <TableRow
+                android:layout_marginLeft="@dimen/margem"
+                android:layout_marginRight="@dimen/margem"
+                android:gravity="center"
+                >
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/abril"
+                    android:id="@+id/btnAbril"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/maio"
+                    android:id="@+id/btnMaio"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/junho"
+                    android:id="@+id/btnJunho"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+            </TableRow>
+            <TableRow
+                android:layout_marginLeft="@dimen/margem"
+                android:layout_marginRight="@dimen/margem"
+                android:gravity="center"
+                >
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/julho"
+                    android:id="@+id/btnJulho"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/agosto"
+                    android:id="@+id/btnAgosto"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setembro"
+                    android:id="@+id/btnSetembro"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+            </TableRow>
+            <TableRow
+                android:layout_marginLeft="@dimen/margem"
+                android:layout_marginRight="@dimen/margem"
+                android:gravity="center"
+                >
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/outubro"
+                    android:id="@+id/btnOutubro"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/novembro"
+                    android:id="@+id/btnNovembro"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dezembro"
+                    android:id="@+id/btnDezembro"
+                    android:gravity="center"
+                    android:textSize="8pt"
+                    android:onClick="listarDividas" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+</LinearLayout>

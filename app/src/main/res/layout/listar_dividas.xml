@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="#7CB7B7"
+    >
+
+    <!-- Preview and Next Month -->
+     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:orientation="vertical"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal"
+         android:background="#7CB7B7">
+         <ImageButton
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="@dimen/margem"
+             android:src="@drawable/icone_left"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/mesSelecionado"
+             android:textSize="10pt"
+             android:textStyle="bold"
+             android:textColor="#000000"
+             android:gravity="center"
+             android:layout_alignParentTop="true"
+             android:layout_centerHorizontal="true"
+             />
+        <ImageButton
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginRight="@dimen/margem"
+             android:src="@drawable/icone_right"
+             android:layout_alignParentTop="true"
+             android:layout_alignParentEnd="true"
+            />
+     </RelativeLayout>
+
+    <!-- Table Header -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#AADEE0"
+        android:id="@+id/header">
+        <TableRow
+            android:layout_marginLeft="@dimen/margem"
+            android:layout_marginRight="@dimen/margem">
+            <TextView
+                android:layout_column="1"
+                android:layout_width="@dimen/largura_coluna_descricao"
+                android:layout_height="wrap_content"
+                android:text="Descricao"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_column="2"
+                android:layout_width="@dimen/largura_coluna"
+                android:layout_height="wrap_content"
+                android:text="Valor"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_column="3"
+                android:layout_width="@dimen/largura_coluna"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Vencimento"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_column="4"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Pago"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+        </TableRow>
+    </TableLayout>
+
+    <!-- Table Body -->
+    <ListView
+        android:id="@+id/lista_dividas"
+        android:layout_width="match_parent"
+        android:layout_height="150pt"
+        android:background="#EEEEEE"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:layout_below="@+id/header">
+    </ListView>
+
+    <!-- Footer-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!-- Saldo, Sub Total-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:background="#7CB7B7">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margem"
+                android:layout_marginRight="@dimen/margem">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="5pt"
+                    android:text="Sub total:"
+                    android:textColor="#000000" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:textStyle="bold"
+                    android:textSize="5pt"
+                    android:text="Saldo:"
+                    android:textColor="#000000"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margem"
+                android:layout_marginRight="@dimen/margem">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/total"
+                    android:enabled="false"
+                    android:textSize="7pt"
+                    android:textColor="#000000"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:id="@+id/saldo"
+                    android:enabled="false"
+                    android:textSize="7pt"
+                    android:textColor="#000000"/>
+            </TableRow>
+
+            <!-- Botão voltar -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margem"
+                android:layout_marginRight="@dimen/margem"
+                android:gravity="center_horizontal"
+                android:text="@string/voltar"
+                android:onClick="voltar"/>
+
+        </TableLayout>
+    </RelativeLayout>
+</LinearLayout>
