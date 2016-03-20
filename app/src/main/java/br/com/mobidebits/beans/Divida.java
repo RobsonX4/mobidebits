@@ -9,7 +9,7 @@ import br.com.mobidebits.dao.Tabela;
  */
 public class Divida implements Tabela {
 
-    private Integer id;
+    private Long id;
     private Integer idUsuario;
     private String descricao;
     private Double valor;
@@ -17,15 +17,16 @@ public class Divida implements Tabela {
     private String vencimento;
     private String tipo;
     private boolean parcelado;
+    private Integer nParcelas;
     private Integer status;
     private List<Parcela> parcelas;
     private boolean pago;
 
     //Metodos Getters & Setters
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -78,6 +79,13 @@ public class Divida implements Tabela {
         this.parcelado = parcelado;
     }
 
+    public Integer getNParcelas() {
+        return nParcelas;
+    }
+    public void setNParcelas(Integer nParcelas) {
+        this.nParcelas = nParcelas;
+    }
+
     public boolean isPago() {
         return pago;
     }
@@ -109,6 +117,7 @@ public class Divida implements Tabela {
     public static final String VENCIMENTO   = "vencimento";
     public static final String TIPO         = "tipo";
     public static final String IS_PARCELADO = "is_parcelado";
+    public static final String N_PARCELAS   = "nParcelas";
     public static final String STATUS       = "status";
 
     @Override
@@ -122,7 +131,8 @@ public class Divida implements Tabela {
                     + ABERTURA      + " TEXT NOT NULL,"
                     + VENCIMENTO    + " TEXT NOT NULL,"
                     + TIPO          + " TEXT NOT NULL,"
-                    + IS_PARCELADO  + " TEXT NOT NULL,"
+                    + IS_PARCELADO  + " INTEGER NOT NULL,"
+                    + N_PARCELAS    + " INTEGER NOT NULL,"
                     + STATUS        + " INTEGER NOT NULL,"
                     + "FOREIGN KEY("+ ID_USUARIO +") REFERENCES "+ Usuario.TABELA +"("+ Usuario.ID +")"
                     + ")"

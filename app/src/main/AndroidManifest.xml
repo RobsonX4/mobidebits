@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_mobidebits"
         android:label="@string/app_name" >
 
         <!-- TELA INICIAL: LOGIN: LAUNCHER -->
@@ -18,14 +18,8 @@
             </intent-filter>
         </activity>
 
-        <!-- TELA: CADASTRO USUARIO -->
-        <activity
-            android:name=".activities.CadastrarUsuarioActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar" />
-
         <!-- TELA: HOME -->
         <activity android:name=".activities.HomeActivity" />
-
         <!-- TELA: DIVIDAS -->
         <activity android:name=".activities.ListarDividasActivity" />
         <!-- TELA: CADASTRO DIVIDAS -->

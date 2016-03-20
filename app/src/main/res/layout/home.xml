@@ -18,7 +18,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Salário: "
+                android:text="Saldo mês: "
                 android:gravity="left"
                 android:textSize="10pt"
                 android:textStyle="bold"
@@ -30,6 +30,7 @@
                 android:layout_marginLeft="5pt"
                 android:id="@+id/salario"
                 android:text="R$1.986,50"
+                android:inputType="number"
                 android:gravity="right"
                 android:textSize="10pt"
                 android:textColor="#000000"

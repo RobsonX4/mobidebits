@@ -9,27 +9,27 @@ import br.com.mobidebits.dao.Tabela;
  */
 public class Parcela implements Tabela {
 
-    private Integer id;
-    private Integer idDivida;
+    private Long id;
+    private Long idDivida;
     private Integer numero;
     private Double valor;
-    private Calendar vencimento;
+    private String vencimento;
     private Integer status;
 
     //Metodos Getters & Setters
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getIdDivida() {
+    public Long getIdDivida() {
         return idDivida;
     }
 
-    public void setIdDivida(Integer idDivida) {
+    public void setIdDivida(Long idDivida) {
         this.idDivida = idDivida;
     }
 
@@ -49,11 +49,11 @@ public class Parcela implements Tabela {
         this.valor = valor;
     }
 
-    public Calendar getVencimento() {
+    public String getVencimento() {
         return vencimento;
     }
 
-    public void setVencimento(Calendar vencimento) {
+    public void setVencimento(String vencimento) {
         this.vencimento = vencimento;
     }
 

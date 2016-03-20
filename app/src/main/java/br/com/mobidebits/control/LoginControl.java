@@ -24,7 +24,6 @@ public class LoginControl {
     public boolean inserir(Usuario usuario) {
         if (usuarioDAO.inserir(usuario))
             return true;
-
         return false;
     }
 
@@ -33,17 +32,15 @@ public class LoginControl {
         if (usuario.getUsuario().isEmpty() || usuario.getUsuario() == null ||
                 usuario.getSenha().isEmpty() || usuario.getSenha() == null)
             return false;
-
         return true;
     }
 
     public boolean validateCadastro(Usuario usuario) {
         if (usuario.getNome().isEmpty() || usuario.getNome() == null
-                || usuario.getEmail().isEmpty() || usuario.getEmail() == null
+            || usuario.getEmail().isEmpty() || usuario.getEmail() == null
                 || usuario.getUsuario().isEmpty() || usuario.getUsuario() == null
-                || usuario.getSenha().isEmpty() || usuario.getSenha() == null)
+                    || usuario.getSenha().isEmpty() || usuario.getSenha() == null)
             return false;
-
         return true;
     }
 }

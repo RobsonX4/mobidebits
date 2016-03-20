@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:background="#7CB7B7"
+    android:background="#EEEEEE"
     >
 
     <!-- Preview and Next Month -->
@@ -19,6 +19,7 @@
              android:layout_height="wrap_content"
              android:layout_marginLeft="@dimen/margem"
              android:src="@drawable/icone_left"
+             android:onClick="previewMonth"
              />
          <TextView
              android:layout_width="wrap_content"
@@ -28,6 +29,7 @@
              android:textStyle="bold"
              android:textColor="#000000"
              android:gravity="center"
+             android:enabled="false"
              android:layout_alignParentTop="true"
              android:layout_centerHorizontal="true"
              />
@@ -38,6 +40,7 @@
              android:src="@drawable/icone_right"
              android:layout_alignParentTop="true"
              android:layout_alignParentEnd="true"
+            android:onClick="nextMonth"
             />
      </RelativeLayout>
 
@@ -103,46 +106,48 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-
         <!-- Saldo, Sub Total-->
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:background="#7CB7B7">
+            android:background="#AADEE0">
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margem"
                 android:layout_marginRight="@dimen/margem">
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="8pt"
+                    android:text="SUB TOTAL:"
+                    android:textColor="#000000"
+                    />
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="5pt"
-                    android:text="Sub total:"
-                    android:textColor="#000000" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:textStyle="bold"
-                    android:textSize="5pt"
-                    android:text="Saldo:"
-                    android:textColor="#000000"/>
+                    android:id="@+id/total"
+                    android:enabled="false"
+                    android:textSize="8pt"
+                    android:textColor="#000000"
+                    />
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margem"
                 android:layout_marginRight="@dimen/margem">
-                <EditText
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/total"
-                    android:enabled="false"
-                    android:textSize="7pt"
+                    android:layout_gravity="left|center_vertical"
+                    android:textStyle="bold"
+                    android:textSize="8pt"
+                    android:text="SALDO:"
                     android:textColor="#000000"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -150,19 +155,9 @@
                     android:layout_gravity="right"
                     android:id="@+id/saldo"
                     android:enabled="false"
-                    android:textSize="7pt"
+                    android:textSize="8pt"
                     android:textColor="#000000"/>
             </TableRow>
-
-            <!-- Botão voltar -->
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margem"
-                android:layout_marginRight="@dimen/margem"
-                android:gravity="center_horizontal"
-                android:text="@string/voltar"
-                android:onClick="voltar"/>
 
         </TableLayout>
     </RelativeLayout>

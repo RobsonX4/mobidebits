@@ -3,13 +3,18 @@ package br.com.mobidebits.dao;
 import java.util.List;
 
 import br.com.mobidebits.beans.Divida;
+import br.com.mobidebits.beans.Parcela;
 
 /**
  * Created by Robson on 13/12/2015.
  */
 public interface DividaDAO {
 
-    boolean inserir(Divida divida);
+    Long inserirDivida(Divida divida);
 
-    List<Divida> listar(int idUsuario, int mes);
+    Long inserirParcela(Parcela parcela, Long idDivida);
+
+    List<Divida> listarDividas(int idUsuario, String ano);
+
+    List<Parcela> listarParcelas(long idDivida, int mes, String ano);
 }

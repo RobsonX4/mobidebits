@@ -8,7 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import br.com.mobidebits.beans.Divida;
+import br.com.mobidebits.beans.Parcela;
 import br.com.mobidebits.dao.DBHelper;
 import br.com.mobidebits.dao.DividaDAO;
 
@@ -25,10 +28,9 @@ public class DividaDAOImpl implements DividaDAO {
     }
 
     @Override
-    public boolean inserir(Divida divida) {
+    public Long inserirDivida(Divida divida) {
         if (divida != null) {
             ContentValues valores = new ContentValues();
-
             db = dbHelper.getWritableDatabase();
 
             valores.put(divida.ID, divida.getId());
@@ -38,43 +40,102 @@ public class DividaDAOImpl implements DividaDAO {
             valores.put(divida.ABERTURA, divida.getAbertura());
             valores.put(divida.VENCIMENTO, divida.getVencimento());
             valores.put(divida.TIPO, divida.getTipo());
-            valores.put(divida.IS_PARCELADO, divida.isParcelado());
+            valores.put(divida.IS_PARCELADO, divida.isParcelado() ? 1 : 0);
+            valores.put(divida.N_PARCELAS, divida.getNParcelas());
             valores.put(divida.STATUS, divida.getStatus());
 
-            long resultado = db.insert(divida.TABELA, null, valores);
+            long resultado = db.insert(Divida.TABELA, null, valores);
             db.close();
 
             if (resultado == -1)
-                return false;
-            return true;
+                return null;
+            return resultado;
         } else
-            return false;
+            return null;
     }
 
     @Override
-    public List<Divida> listar(int idUsuario, int mes) {
+    public Long inserirParcela(Parcela parcela,Long idDivida) {
+        if (parcela != null) {
+            ContentValues valores = new ContentValues();
+            db = dbHelper.getWritableDatabase();
+
+            valores.put(Parcela.ID, parcela.getId());
+            valores.put(Parcela.ID_DIVIDA, idDivida);
+            valores.put(Parcela.NUMERO, parcela.getNumero());
+            valores.put(Parcela.VALOR, parcela.getValor());
+            valores.put(Parcela.VENCIMENTO, parcela.getVencimento());
+            valores.put(Parcela.STATUS, parcela.getStatus());
+
+            long resultado = db.insert(Parcela.TABELA, null, valores);
+            db.close();
+
+            if (resultado == -1)
+                return null;
+            return resultado;
+        } else
+            return null;
+    }
+
+    @Override
+    public List<Divida> listarDividas(int idUsuario, String ano) {
         Divida divida = new Divida();
         List<Divida> dividas = new ArrayList<Divida>();
         db = dbHelper.getWritableDatabase();
 
-        String where = divida.ID_USUARIO + " = " + idUsuario;
-        Cursor cursor = db.query(divida.TABELA, null, where, null, null, null, null);
+        String[] args = new String[1];
+        args[0] = String.valueOf(idUsuario);
+
+        Cursor cursor = db.rawQuery(
+            "SELECT *  FROM "+ Divida.TABELA +
+                " WHERE "+ divida.ID_USUARIO +"= ?", args);
 
         while (cursor.moveToNext()) {
             divida = new Divida();
-            divida.setId(cursor.getInt(cursor.getColumnIndex(divida.ID)));
+            divida.setId(cursor.getLong(cursor.getColumnIndex(divida.ID)));
             divida.setIdUsuario(cursor.getInt(cursor.getColumnIndex(divida.ID_USUARIO)));
             divida.setDescricao(cursor.getString(cursor.getColumnIndex(divida.DESCRICAO)));
             divida.setValor(cursor.getDouble(cursor.getColumnIndex(divida.VALOR)));
             divida.setAbertura(cursor.getString(cursor.getColumnIndex(divida.ABERTURA)));
             divida.setVencimento(cursor.getString(cursor.getColumnIndex(divida.VENCIMENTO)));
             divida.setTipo(cursor.getString(cursor.getColumnIndex(divida.TIPO)));
-            //divida.setParcelado(cursor.getColumnIndex(divida.IS_PARCELADO));
+            int isParcelado = cursor.getInt(cursor.getColumnIndex(divida.IS_PARCELADO));
+            divida.setParcelado(isParcelado == 0 ? false:true);
+            divida.setNParcelas(cursor.getInt(cursor.getColumnIndex(divida.N_PARCELAS)));
             divida.setStatus(cursor.getInt(cursor.getColumnIndex(divida.STATUS)));
             dividas.add(divida);
         }
-        if (dividas != null)
+        if (dividas != null && !dividas.isEmpty())
             return dividas;
+        return null;
+    }
+
+    @Override
+    public List<Parcela> listarParcelas(long idDivida, int mes, String ano) {
+        List<Parcela> parcelas = new ArrayList<Parcela>();
+        db = dbHelper.getWritableDatabase();
+
+        String[] args = new String[1];
+        args[0] = "%"+ mes +"/"+ ano;
+
+        Cursor cursor = db.rawQuery(
+            "SELECT * FROM "+ Parcela.TABELA +
+                " WHERE "+ Parcela.ID_DIVIDA +"="+ idDivida +
+                    " AND ("+ Parcela.VENCIMENTO +" LIKE ?)", args);
+
+        while (cursor.moveToNext()) {
+            Parcela parcela = new Parcela();
+            parcela.setId(cursor.getLong(cursor.getColumnIndex(Parcela.ID)));
+            parcela.setIdDivida(cursor.getLong(cursor.getColumnIndex(Parcela.ID_DIVIDA)));
+            parcela.setValor(cursor.getDouble(cursor.getColumnIndex(Parcela.VALOR)));
+            parcela.setNumero(cursor.getInt(cursor.getColumnIndex(Parcela.NUMERO)));
+            parcela.setVencimento(cursor.getString(cursor.getColumnIndex(Parcela.VENCIMENTO)));
+            int teste = cursor.getInt(cursor.getColumnIndex(Parcela.STATUS));
+            parcela.setStatus(cursor.getInt(cursor.getColumnIndex(Parcela.STATUS)));
+            parcelas.add(parcela);
+        }
+        if (parcelas != null && !parcelas.isEmpty())
+            return parcelas;
         return null;
     }
 }

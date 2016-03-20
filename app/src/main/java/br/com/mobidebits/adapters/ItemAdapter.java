@@ -5,30 +5,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.Currency;
 import java.util.List;
 
 import br.com.mobidebits.beans.Divida;
 import br.com.mobidebits.R;
+import br.com.mobidebits.beans.DividaItem;
 import br.com.mobidebits.utils.FinancasUtils;
+import br.com.mobidebits.utils.Validator;
 
 /**
  * Created by Robson on 23/12/2015.
  */
-public class DividaAdapter extends BaseAdapter {
+public class ItemAdapter extends BaseAdapter {
 
-    private final List<Divida> dividas;
+    private final List<DividaItem> itens;
     private final Context context;
     private LayoutInflater inflater;
-    private FinancasUtils dividaUtils;
 
-    public DividaAdapter(List<Divida> lista, Context context) {
+    public ItemAdapter(List<DividaItem> lista, Context context) {
         super();
-        this.dividas = lista;
+        this.itens = lista;
         this.context = context;
         inflater = LayoutInflater.from(context);
-        dividaUtils = new FinancasUtils();
     }
 
     @Override
@@ -36,26 +38,28 @@ public class DividaAdapter extends BaseAdapter {
         if (view == null)
             view = inflater.inflate(R.layout.divida_item, viewGroup, false);
 
-        Divida divida = dividas.get(i);
+        DividaItem item = itens.get(i);
         TextView descricao = (TextView) view.findViewById(R.id.divida_descricao);
         TextView valor = (TextView) view.findViewById(R.id.divida_valor);
         TextView vencimento = (TextView) view.findViewById(R.id.divida_vencimento);
+        Switch isPago = (Switch) view.findViewById(R.id.divida_isPago);
 
-        descricao.setText(divida.getDescricao());
-        valor.setText(dividaUtils.convertToMoney(divida.getValor(),"BRL").toString());
-        vencimento.setText(new String(divida.getVencimento().substring(0,5)));
+        descricao.setText(item.getDescricao());
+        valor.setText(Validator.convertToMoney(item.getValor(), Currency.getInstance("BRL")).toString());
+        vencimento.setText(new String(item.getVencimento().substring(0,5)));
+        isPago.setChecked(item.isPago());
 
         return view;
     }
 
     @Override
     public int getCount() {
-        return dividas.size();
+        return itens.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return dividas.get(i);
+        return itens.get(i);
     }
 
     @Override

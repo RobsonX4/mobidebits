@@ -7,21 +7,13 @@
             android:showAsAction="always" />
         <item
             android:id="@+id/option_cadastrar"
-            android:title="Adicionar divida" />
-        <item
-            android:id="@+id/option_editar"
-            android:title="Editar divida" />
+            android:title="Nova Finança" />
         <item
             android:id="@+id/option_consultar"
-            android:title="Pesquisar divida" />
-    </group>
-    <group>
+            android:title="Pesquisar Finança" />
         <item
             android:id="@+id/option_perfil"
             android:title="Perfil" />
-        <Item
-            android:id="@+id/option_areaFinanceira"
-            android:title="Área financeira" />
         <item
             android:id="@+id/logout"
             android:title="Sair" />
