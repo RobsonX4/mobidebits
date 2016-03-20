@@ -14,7 +14,5 @@ public interface DividaDAO {
 
     Long inserirParcela(Parcela parcela, Long idDivida);
 
-    List<Divida> listarDividas(int idUsuario, String ano);
-
-    List<Parcela> listarParcelas(long idDivida, int mes, String ano);
+    List<Divida> listarDividas(int idUsuario,int mes, String ano);
 }

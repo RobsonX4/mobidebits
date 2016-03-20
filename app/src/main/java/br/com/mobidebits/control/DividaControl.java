@@ -37,35 +37,11 @@ public class DividaControl {
     }
 
     public List<Divida> listarDividas(int idUsuario, int mes, String ano) {
-        List<Divida> resultado = new ArrayList<Divida>();
-
         List<Divida> dividas = new ArrayList<Divida>();
-        dividas = dividaDAO.listarDividas(idUsuario, ano);
+        dividas = dividaDAO.listarDividas(idUsuario, mes, ano);
 
-        if(dividas == null || dividas.isEmpty())
-            return null;
-
-        for(Divida divida: dividas) {
-            if(divida.isParcelado()) {
-                List<Parcela> parcelas = dividaDAO.listarParcelas(divida.getId(), mes, ano);
-                if(parcelas != null) {
-                    divida.setParcelas(parcelas);
-                    resultado.add(divida);
-                }
-            }else {
-                String[] data = divida.getVencimento().split("/");
-
-                String mesNovo = String.valueOf(mes);
-                if(mes < 10)
-                    mesNovo = "0"+ mes;
-
-                if (data[1].equals(mesNovo) && data[2].equals(ano))
-                    resultado.add(divida);
-            }
-        }
-
-        if (resultado != null && !resultado.isEmpty())
-            return resultado;
+        if(dividas != null && !dividas.isEmpty())
+            return dividas;
         return null;
     }
 }

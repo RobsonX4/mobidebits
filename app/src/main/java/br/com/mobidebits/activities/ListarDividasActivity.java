@@ -174,8 +174,8 @@ public class ListarDividasActivity extends Activity {
         double total = 0.0;
         mesSelecionado.setText(getMes(mes));
 
-        dividas = dividaControl.listarDividas(idUsuario, mes, anoSelecionado);
         List<DividaItem> itens = new ArrayList<DividaItem>();
+        dividas = dividaControl.listarDividas(idUsuario, mes, anoSelecionado);
         if (dividas != null) {
             for(Divida divida : dividas){
                 DividaItem item = new DividaItem();
